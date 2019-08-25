@@ -19,8 +19,9 @@ Also, The following action classes are implemented that uses Planning and Execut
 
 * **OpenCloseGripperAction** : Open / Close Gripper functionality is implemented here.
 
-=> This package also contains ArmControlParameterList class that bridges ROS param server and different nodes. It also serves to provide setter/getter methods to set/get dynamic changes in the parameters into/from the yaml file.
+* The folder also contains ArmControlParameterList class that bridges ROS param server and different nodes. It also serves to provide setter/getter methods to set/get dynamic changes in the parameters into/from the yaml file.
 
+* The Widgets folder contain GUI interface implemented using Qt Library.
 # Usage and Commands to startup Arm Motion Planning
 
 The following commands are to be executed in sequence. Make sure that a single command is fully running before executing the next one:
