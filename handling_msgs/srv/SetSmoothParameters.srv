@@ -1,0 +1,5 @@
+bool useSmooth
+float64 polynomialOrder
+float64 radius
+---
+bool success

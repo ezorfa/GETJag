@@ -1,0 +1,14 @@
+bool keypoints
+bool normals
+bool dense
+bool correspondences
+bool showAllCorrespondences
+bool showMatchingColor
+bool estimatedObjects
+bool referenceFrames
+bool voting
+float32 denseSize
+float32 keypointSize
+float32 estimationSize
+---
+bool success

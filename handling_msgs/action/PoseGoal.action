@@ -1,0 +1,10 @@
+# goal definition
+geometry_msgs/Pose pose
+
+---
+# result definition
+bool success
+
+---
+# feedback definition
+string feedback

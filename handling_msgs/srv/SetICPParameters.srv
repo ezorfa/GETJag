@@ -1,0 +1,8 @@
+bool useICP
+int64 maximumIterations
+int64 RANSACIterations
+float64 RANSACOutlierRejectionThreshold
+float64 MaxCorrespondenceDistance
+float64 TransformationEpsilon
+---
+bool success

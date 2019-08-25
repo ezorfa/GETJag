@@ -1,0 +1,7 @@
+uint16 newSequence 		#New sequence which sould be executed. Sequence 0 is move home.
+uint16 targetObject		#Which type of object is the target object?
+
+#Where is the origin of the target object?
+geometry_msgs/Pose pose
+---
+bool success

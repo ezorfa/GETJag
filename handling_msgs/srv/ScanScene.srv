@@ -1,0 +1,6 @@
+bool record
+bool stashOldCloud
+bool stashAll
+bool finalProcessing
+---
+bool success

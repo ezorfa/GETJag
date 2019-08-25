@@ -1,0 +1,102 @@
+init:
+  robot_namespace:
+    GETjag
+  joints:
+    - GETjag/arm_base_joint
+    - GETjag/arm_shoulder_joint
+    - GETjag/arm_elbow_joint
+    - GETjag/arm_wrist_yaw_joint
+    - GETjag/arm_wrist_pitch_joint
+    - GETjag/arm_wrist_roll_joint
+    - GETjag/arm_gripper_joint
+  controllers:
+    - GETjag/arm_base_controller
+    - GETjag/arm_shoulder_controller
+    - GETjag/arm_elbow_controller
+    - GETjag/arm_wrist_yaw_controller
+    - GETjag/arm_wrist_pitch_controller
+    - GETjag/arm_wrist_roll_controller
+    - GETjag/arm_gripper_controller
+  touch_links:
+    - GETjag/arm_gripper_finger_left_link
+    - GETjag/arm_gripper_link
+    - GETjag/arm_gripper_finger_right_link
+  gripper_controller: GETjag/arm_gripper_controller
+  gripper: GETjag/arm_gripper_joint
+  constraints:
+    joyPlanningXLowerLimit: 0.2
+    joyPlanningXHigherLImit: 0.65
+  moveit_planning_groups:
+   arm: GETjag_arm
+  action_names:
+      go_home: dexterity/goHome
+      go_to_pose: dexterity/goalPose
+      trajectory: joint_trajectory_action
+      grab: grab_action
+      release: dexterity/release
+      gripper: dexterity/gripper
+      extract: extract_action
+      inspect: inspect_action
+      drop: dexterity/drop
+  current_joy_mode: Auto
+  current_execution_mode: Automatic
+  topic_names:
+      controller_speed: /set_speed
+      controller_command: /command
+      controller_state: /state
+      joint_states: joint_states
+      object_grabbed_grasp: dexterity/object_grabbed_grasp
+      object_grabbed_extract: dexterity/object_grabbed_extract
+      wrist_reset: dexterity/arm_wrist_reset
+      reset: dexterity/arm_reset
+      gui_toggle_exe_cancel: /dexterity/GUI/toggle_exe_cancel
+  reference_frames:
+      base_link: GETjag/base_link
+      end_effector_link: GETjag/arm_wrist_roll_link
+      current_ref_frame: GETjag/base_link
+  controller_speed: 0.2
+  constants:
+      executionTimeOutCount: 100
+      octomapRefreshCount: 100
+      autoModeErrorMargin: 0.3
+      joyModeErrorMargin: 0.2
+      lowerSpeedLimit: 0.1
+      joyMaxVelocityScalingFactor: 0.45
+      grabTimeOutCount: 50
+      moveitMaxPlanningAttempts: 3
+      moveitMaxVelocityScalingFactor: 0.5
+      moveitGoalTolerance: 0.01
+      moveitEEFStep: 0.02
+      gripperOpenAngle: 0.8
+      manualJointSpeeds: 0.5
+      currentGripperStatus: 0
+      maxScalingFactorJoyPlanMode: 0.013
+      maxShoulderScalingFactorManualMode : 0.017
+      maxElbowScalingFactorManualMode : 0.025
+      maxBaseScalingFactorManualMode : 0.025
+      maxPitchScalingFactorManualMode: 0.025
+      maxRollScalingFactorManualMode : 0.05
+      maxYawScalingFactorManualMode : 0.05
+      maxGrabLoad: 0.4
+  joy_mappings:
+    AXIS_X: 1
+    AXIS_Y: 0
+    AXIS_Z: 4
+    BTN_MANUAL: 6
+    BTN_PLANNING: 7
+    BTN_WRIST_RESET: 1
+    BTN_RESET: 2
+    AXIS_PITCH: 7
+    AXIS_ROLL: 3
+    AXIS_YAW: 6
+    AXIS_SHOULDER: 1
+    AXIS_BASE: 0
+    AXIS_ELBOW: 4
+    BTN_G_OPEN: 4
+    BTN_G_CLOSE: 5
+    BTN_AUTO: 8
+    BTN_BASELINK: 0
+    BTN_EEF: 3
+  object_meshes_path:
+    pipestar: file:///eda/gazebo/models/object_robocup_pipestar/meshes/Pipestar.dae
+    box: file:///eda/gazebo/models/object_primitive_box_50_blue/meshes/object_primitive_box_50_blue.dae

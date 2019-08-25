@@ -1,0 +1,17 @@
+float64 model_ss
+float64 scene_ss
+float64 rf_rad
+float64 cg_size
+float64 descr_rad
+float64 cg_thresh
+float64 normal_rad
+float64 sigma_mul
+int8 descriptor
+int8 keypointType
+bool hough_voting
+string template_path
+bool use_template_path
+string scene_path
+bool use_scene_path
+---
+bool success

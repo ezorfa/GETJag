@@ -1,0 +1,3 @@
+Header header 			#Timestamp, sequence id...
+uint16 object_count		#Number if detected objects which represents the array length
+DetectedObject[] objects

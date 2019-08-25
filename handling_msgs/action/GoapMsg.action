@@ -1,0 +1,9 @@
+#goal
+string input
+---
+#result
+string status
+string result
+---
+#feedback
+float32 progress

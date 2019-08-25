@@ -1,0 +1,19 @@
+int8 numberOfSteps
+int8 shotsPerStep
+float64 sceneSS
+float64 modelSS
+bool noColor
+float64 icpSS
+int64 icpIterations
+bool cutSzene
+float64 cutHeightA
+float64 cutRadiusA
+float64 cutHeightB
+float64 cutRadiusB
+bool smoothShots
+float64 smoothRadius
+float64 smoothPolynom
+bool saveResult
+string filename
+---
+bool success

@@ -1,0 +1,14 @@
+int8 numberOfSteps
+float64 modelSS
+bool cutSzene
+float64 cutHeight
+float64 cutRadius
+bool removeOutliers
+float64 outlierMean
+float64 outlierStddev
+float64 r
+float64 g
+float64 b
+float64 markerThreshold
+---
+bool success

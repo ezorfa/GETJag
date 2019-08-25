@@ -1,0 +1,9 @@
+string[] name
+string profileId
+---
+string[] modelFiles
+string[] keypointFiles
+string[] descriptorFiles
+string[] normalFiles
+string[] referenceFrameFiles
+bool success

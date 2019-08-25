@@ -1,0 +1,26 @@
+# OffsetX == Distance before the arm should stop before approaching object in X direction w.r.t base_link.
+# OffsetY == Distance before the arm should stop before approaching object in Y direction w.r.t base_link.
+# OffsetZ == Distance before the arm should stop before approaching object in Z direction w.r.t base_link.
+# ApproachOffset == Distance that should be subtracted from offsetX or offsetY or offsetZ to slide in the gripper to grab the object.
+
+# <Name of the grasp> : [Roll, Pitch, Yaw, OffsetX_x, OffsetX_y, OffsetX_z, OffsetY_x, OffsetY_y, OffsetY_z, OffsetZ_x, OffsetZ_y, OffsetZ_z, ApproachOffset_x,ApproachOffset_y,ApproachOffset_z]
+
+pipestar:
+
+  ps_grasp1: [1.57075,0.0,0.0,-0.2,0.0,0.0,0.0,-0.045,0.0,0.0,0.0,0.13,0.08,0.0,0.0]
+
+  ps_grasp2: [1.57075,0.0,-1.57075,0.0,0.0,0.4,0.0,-0.045,0.0,0.0,0.0,0.0,0.0,0.0,-0.25]
+
+  ps_grasp3: [1.57075,1.57075,0.0,0.0,-0.25,0.0,+0.045,0.0,0.0,0.0,0.0,0.15,0.0,0.15,0.0]
+
+  ps_grasp4: [1.57075,-1.57075,0.0,0.0,0.25,0.0,-0.045,0.0,0.0,0.0,0.0,0.15,0.0,-0.15,0.0]
+
+BigBox:
+
+  box_grasp1: [1.57075,0.0,0.0,-0.2,0.0,0.0,0.0,-0.045,0.0,0.0,0.0,0.03,0.08,0.0,0.0]
+
+  box_grasp2: [1.57075,0.0,-1.57075,0.0,0.0,0.4,0.0,-0.045,0.0,0.0,0.0,0.0,0.0,0.0,-0.25]
+
+  box_grasp3: [1.57075,1.57075,0.0,0.0,-0.25,0.0,+0.045,0.0,0.0,0.0,0.0,0.15,0.0,0.15,0.0]
+
+  box_grasp4: [1.57075,-1.57075,0.0,0.0,0.25,0.0,-0.045,0.0,0.0,0.0,0.0,0.15,0.0,-0.15,0.0]

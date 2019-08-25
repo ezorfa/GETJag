@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>arm_planning</name>
+  <version>0.0.0</version>
+  <description>arm_planning package</description>
+  <maintainer email="afroze@todo.de">mohammed</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>handling_msgs</depend>
+
+  <depend>actionlib</depend>
+  <depend>roscpp</depend>
+  <depend>tf</depend>
+  <depend>operator_interface</depend>
+
+</package>

@@ -1,0 +1,7 @@
+string[] names
+string[] keypointFiles
+string[] descriptorFiles
+string[] normalFiles
+string[] referenceFrameFiles
+---
+bool success

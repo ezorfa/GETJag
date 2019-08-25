@@ -1,0 +1,7 @@
+string name
+string comment
+---
+sensor_msgs/PointCloud2 descriptor
+sensor_msgs/PointCloud2 keypoint
+sensor_msgs/PointCloud2 normal
+sensor_msgs/PointCloud2 refFrame

@@ -1,0 +1,6 @@
+bool removeOutliers
+float64 outlierMean
+float64 outlierStddev
+bool showNegative
+---
+bool success

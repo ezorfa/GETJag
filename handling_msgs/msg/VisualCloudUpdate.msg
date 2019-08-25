@@ -1,0 +1,14 @@
+sensor_msgs/PointCloud2 models
+sensor_msgs/PointCloud2 modelKeypoints
+sensor_msgs/PointCloud2 modelNormals
+sensor_msgs/PointCloud2 modelRFs
+uint16 sequendeIdModels
+sensor_msgs/PointCloud2 scene
+sensor_msgs/PointCloud2 sceneKeypoints
+sensor_msgs/PointCloud2 sceneNormals
+sensor_msgs/PointCloud2 sceneRFs
+sensor_msgs/PointCloud2 estimatedObjects
+geometry_msgs/Vector3[] PointA
+geometry_msgs/Vector3[] PointB
+geometry_msgs/Vector3[] LineColor
+uint16 sequendeIdScene
