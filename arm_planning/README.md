@@ -1,7 +1,5 @@
 # Description
 
-(https://github.com/ezorfa/GETJag/blob/master/arm_planning/widgets/000006.png)
-
 The src folder contains three main nodes : Planning, Executor and JoyControl.
 
 * **Planning** : Uses Moveit! to plan trajectories.
