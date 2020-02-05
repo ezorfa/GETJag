@@ -1,5 +1,8 @@
 # Short Description
 
+<p align="center">
+<img src="images/FCSystemDesign.png" width="480">
+
 The src folder contains three main nodes : Planning, Executor and JoyControl.
 
 * **Planning** : Uses Moveit! to plan trajectories.
@@ -75,7 +78,7 @@ While the system in operation, the external goals received by the Manipulation T
 The Planning node is one of the primary nodes that deals with generation of a path trajectory when a goal is fed to it. Typically, the target is a desired pose to be reached by the arm, which is either provided by an external entity or computed within modules. It relies heavily on the MoveIt! motion planning framework to plan for the trajectories. A trajectory is composed of several points and each point contains the joint positions of all the joints and their respective velocities and accelerations. In the current implementation, only the joint positions and the velocities have been taken into considerations due to the limitations of the existing hardware.The velocities so generated during planning by Moveit! are not often suitable for the existing hardware.For example, the min velocity of very low magnitude cannot be attained by the controllers. Therefore, there is a need to pre-process the generated trajectory to scale down or up to attain a desired behavior (visible smoothness).
 
 <p align="center">
-<img src="images/CollisionAvoidance.gif" width="550">
+<img src="images/CollisionAvoidance.gif" width="500">
 
 Another function of the planning node is to maintain the planning scene environment. It also handles attaching mesh objects as collision objects in the environment. The move_group node, which is the crux of the motion planning framework, subscribes to the topic "/monitored_planning_scene" to receive the status of the planning environment to account for any obstacles present in the scene while generating trajectories. The obstacles in the environment are represented in the planning scene by octomap.
 
