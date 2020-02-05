@@ -106,7 +106,7 @@ The methods setSucceeded, setFeedback and setPreempted are overridden by the imp
 
 ## Pose Manipulation 
 
-<img src="images/Cube.png" width="480" align="middle"> <img src="images/ManipulatePose.png" width="480">
+<img src="images/Cube.png" width="380" align="middle"><img src="images/ManipulatePose.png" width="380">
 
 The detected pose of the object so received is not the grasping pose for the object. Therefore, the received pose needs to be manipulated in order to perform the actions correctly. The pose message contains the position and orientation. From the received pose, the position is manipulated to add the required offsets stored for different objects in the database. Different possible orientations of the end-effector are also stored in the database. For example, the cube has four possible end-effector orientations as shown in the figure with red arrows. The received pose is manipulated as shown in the figure.
 
