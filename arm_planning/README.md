@@ -48,7 +48,9 @@ MoveIt! integrates several Kinematics solvers :
 * TRAC_IK Kinematics solver
 * IKFast Kinematics solver
 
+<p align="center">
 <img src="images/Octomap.jpg" align="centre" width="400">
+</p>
 
 The primary component in MoveIt! that deals with 3D perception is the Occupancy Map Updater. It basically converts the data from 3D sensors to a probabilistic representation of the environment in the form of Octomap.
 
@@ -64,13 +66,15 @@ With such a rich integration of all the necessary tools available to implement t
 
 ## Basic System Design
 The following diagram gives an overview and implementation of the whole system. There are three primary nodes, namely, Planning node, Executor node, and JoyControl node. Several other modules have been created to handle complex manipulation tasks like Grasping, Inspection and Extraction. In the following sections, the task modules and their implementations have been explained in detail.In this section, each primary module is described.
- 
+
+<p align="center">
 <img src="images/FCSystemDesign.png" width="480">
 
 While the system in operation, the external goals received by the Manipulation Task Modules are prioritized over the joystick control by the operator.
 ### Planning
 The Planning node is one of the primary nodes that deals with generation of a path trajectory when a goal is fed to it. Typically, the target is a desired pose to be reached by the arm, which is either provided by an external entity or computed within modules. It relies heavily on the MoveIt! motion planning framework to plan for the trajectories. A trajectory is composed of several points and each point contains the joint positions of all the joints and their respective velocities and accelerations. In the current implementation, only the joint positions and the velocities have been taken into considerations due to the limitations of the existing hardware.The velocities so generated during planning by Moveit! are not often suitable for the existing hardware.For example, the min velocity of very low magnitude cannot be attained by the controllers. Therefore, there is a need to pre-process the generated trajectory to scale down or up to attain a desired behavior (visible smoothness).
 
+<p align="center">
 <img src="images/CollisionAvoidance.gif" width="550">
 
 Another function of the planning node is to maintain the planning scene environment. It also handles attaching mesh objects as collision objects in the environment. The move_group node, which is the crux of the motion planning framework, subscribes to the topic "/monitored_planning_scene" to receive the status of the planning environment to account for any obstacles present in the scene while generating trajectories. The obstacles in the environment are represented in the planning scene by octomap.
@@ -100,12 +104,14 @@ Using Joystick, one can easily toggle between different modes of operations and 
 To perform complex operations like Grasping, Extraction or even complicated tasks like autonomously opening a door, a sequence of actions need to be cascaded or pipelined.
 Therefore, different modules for different complex operations have been implemented. The following UML diagram shows an abstract class ActionServerInterface from which other classes /modules are inherited.The extension of further modules and their integration is as easy as extending the base class and implementing the logic.  
 
+<p align="center">
 <img src="images/DiagramModules.png" width="700">
 
 The methods setSucceeded, setFeedback and setPreempted are overridden by the implementing classes. Such a design is basically needed to ensure easy extension to other action modules implemented in the future. These methods are usually called in the executor node or when there is a need to report if the action is completed or to send continuous feedbacks. For example, to notify the completion of a task in the cascade to the  action server, setSucceeded method is invoked polymorphically, while to send feedback of current progress, setFeedback method is invoked periodically. 
 
 ## Pose Manipulation 
 
+<p align="center">
 <img src="images/Cube.png" width="380" align="middle"><img src="images/ManipulatePose.png" width="380">
 
 The detected pose of the object so received is not the grasping pose for the object. Therefore, the received pose needs to be manipulated in order to perform the actions correctly. The pose message contains the position and orientation. From the received pose, the position is manipulated to add the required offsets stored for different objects in the database. Different possible orientations of the end-effector are also stored in the database. For example, the cube has four possible end-effector orientations as shown in the figure with red arrows. The received pose is manipulated as shown in the figure.
@@ -123,6 +129,7 @@ This action class hosts a server to receive a goal to open or close the gripper.
 
 This action requires a series of operations in sequence to achieve grasping an object. The pipeline is showed in the figure below.
 
+<p align="center">
 <img src="images/GraspPipeline.png" width="550">
 
 The action server receives a goal that contains the goal position and orientation along with id of the object. There is also provision to mention a specific grasp point among various other possible grasps stored in the database. The first step is to apply the mesh of the object to the planning scene as a collision object. This is needed to represent the object in the planning scene in its real form and as separate entity which could later be attached to the tool. 
@@ -142,6 +149,7 @@ The Inspect action is similar to PoseGoalAction in the basic notion that the arm
 ### Extract Action
 The Extract action is similar to the Inspect action except that there is an additional task in the pipeline, which is to extract out a part of the object after grasping it. Grasping part is again similar to the Grasp action. The following pipeline diagram depicts the implementation of the extract action vividly.
 
+<p align="center">
 <img src="images/ExtractPipeline.png" width="550">
 
 ### Drop Action
