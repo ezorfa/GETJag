@@ -2,6 +2,7 @@
 
 <p align="center">
 <img src="images/FCSystemDesign.png" width="480">
+<p align="center">Figure: Flow Chart of the Complete System<p align="center">
 
 The src folder contains three main nodes : Planning, Executor and JoyControl.
 
@@ -54,6 +55,8 @@ MoveIt! integrates several Kinematics solvers :
 <p align="center">
 <img src="images/Octomap.jpg" align="centre" width="400">
 </p>
+<p align="center">Figure: Octomap in RViz <p align="center">
+
 
 The primary component in MoveIt! that deals with 3D perception is the Occupancy Map Updater. It basically converts the data from 3D sensors to a probabilistic representation of the environment in the form of Octomap.
 
@@ -72,6 +75,7 @@ The following diagram gives an overview and implementation of the whole system. 
 
 <p align="center">
 <img src="images/FCSystemDesign.png" width="480">
+<p align="center">Figure: Flow Chart of the Complete System<p align="center">
 
 While the system in operation, the external goals received by the Manipulation Task Modules are prioritized over the joystick control by the operator.
 ### Planning
@@ -79,6 +83,8 @@ The Planning node is one of the primary nodes that deals with generation of a pa
 
 <p align="center">
 <img src="images/CollisionAvoidance.gif" width="500">
+<p align="center">Figure: Visualizing Collision Avoidance in RViz <p align="center">
+
 
 Another function of the planning node is to maintain the planning scene environment. It also handles attaching mesh objects as collision objects in the environment. The move_group node, which is the crux of the motion planning framework, subscribes to the topic "/monitored_planning_scene" to receive the status of the planning environment to account for any obstacles present in the scene while generating trajectories. The obstacles in the environment are represented in the planning scene by octomap.
 
@@ -109,6 +115,7 @@ Therefore, different modules for different complex operations have been implemen
 
 <p align="center">
 <img src="images/DiagramModules.png" width="700">
+<p align="center">Figure: Modules for Action Planning<p align="center">
 
 The methods setSucceeded, setFeedback and setPreempted are overridden by the implementing classes. Such a design is basically needed to ensure easy extension to other action modules implemented in the future. These methods are usually called in the executor node or when there is a need to report if the action is completed or to send continuous feedbacks. For example, to notify the completion of a task in the cascade to the  action server, setSucceeded method is invoked polymorphically, while to send feedback of current progress, setFeedback method is invoked periodically. 
 
@@ -116,6 +123,7 @@ The methods setSucceeded, setFeedback and setPreempted are overridden by the imp
 
 <p align="center">
 <img src="images/Cube.png" width="380" align="middle"><img src="images/ManipulatePose.png" width="380">
+<p align="center">Figure: Cube indicating different possibilities for the end-effector orientation<p align="center">
 
 The detected pose of the object so received is not the grasping pose for the object. Therefore, the received pose needs to be manipulated in order to perform the actions correctly. The pose message contains the position and orientation. From the received pose, the position is manipulated to add the required offsets stored for different objects in the database. Different possible orientations of the end-effector are also stored in the database. For example, the cube has four possible end-effector orientations as shown in the figure with red arrows. The received pose is manipulated as shown in the figure.
 
@@ -134,6 +142,7 @@ This action requires a series of operations in sequence to achieve grasping an o
 
 <p align="center">
 <img src="images/GraspPipeline.png" width="550">
+<p align="center">Figure: Grasp Pipeline<p align="center">
 
 The action server receives a goal that contains the goal position and orientation along with id of the object. There is also provision to mention a specific grasp point among various other possible grasps stored in the database. The first step is to apply the mesh of the object to the planning scene as a collision object. This is needed to represent the object in the planning scene in its real form and as separate entity which could later be attached to the tool. 
 
@@ -154,7 +163,8 @@ The Extract action is similar to the Inspect action except that there is an addi
 
 <p align="center">
 <img src="images/ExtractPipeline.png" width="550">
-
+<p align="center">Figure: Extract Pipeline<p align="center">
+  
 ### Drop Action
 This action module is useful if an object is grasped already and needs to be placed in some other location. In such cases, the object attached to the tool is detached first and gripper is opened. This action also ensures that the object is removed from the list of the collision objects in the planning scene. However, the Octomap representation is still valid in such cases except that the object is not represented in its actual shape and size.
 
