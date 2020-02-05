@@ -2,7 +2,7 @@
  * RUtils.h
  *
  *  Created on: Mar 2, 2019
- *      Author: mohammed
+ *      Author: Mohammed Afroze
  */
 
 #ifndef ROS_PG_WS_2018_19_ARM_PLANNING_INCLUDE_ARM_PLANNING_RUTILS_H_
