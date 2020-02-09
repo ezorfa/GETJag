@@ -1,6 +1,6 @@
 # Teasor
 <p align="center">
-<img src="images/ezgif.com-crop.gif" width="480">
+<img src="images/Grasp.gif" width="480">
 <p align="center">Robot attempting to perform grasp operation<p align="center">
   
 # Short Description
