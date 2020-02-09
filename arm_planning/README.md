@@ -1,5 +1,9 @@
+# Teasor
+<p align="center">
+<img src="images/ezgif.com-crop.gif" width="480">
+<p align="center">Robot attempting to perform grasp operation<p align="center">
+  
 # Short Description
-
 <p align="center">
 <img src="images/FCSystemDesign.png" width="480">
 <p align="center">Figure: Flow Chart of the Complete System<p align="center">
@@ -148,17 +152,10 @@ This action requires a series of operations in sequence to achieve grasping an o
 
 The action server receives a goal that contains the goal position and orientation along with id of the object. There is also provision to mention a specific grasp point among various other possible grasps stored in the database. The first step is to apply the mesh of the object to the planning scene as a collision object. This is needed to represent the object in the planning scene in its real form and as separate entity which could later be attached to the tool. 
 
-{|style="margin: 0 auto;"
-| [[Image:Rviz_grasp.mp4|thumb|auto|x200px| '''Figure 16''': Video showing GETjag attempting to grasp pipestar in RViz.]]
-| [[Image:GraspGETJag.mp4 |thumb|auto|x200px| '''Figure 17''': Video showing GETjag attempting to grasp pipestar.]]
-|}
-
 To perform a grasp action, the arm is first moved near the object with an appropriate grasp pose.This is performed by the PoseGoalAction. The grasp poses are specified in the database and can be retrieved by requesting through a ROS Service. Along with the grasp poses, the offsets for each object which determines an approximate location/position on the object to grasp, are also provided. Once the arm reaches near the position, the OpenCloseGripperAction is called to open the gripper so that arm could approach the object. The action of approaching the object is again performed by sending a goal to the PoseGoalAction. After the arm is in the grasping stage, the object is attached to the tool as can be seen in the Fig16. The GIF shows the object turning to pink color, indicating that the arm is attached to the end-effector. The orange state shows the position of the grasped object in the home state. After attaching the object to the tool, it becomes a part of the arm and MoveIt! considers it while planning a path.Finally the OpenCloseGripperAction is again called to close the gripper. This completes the Grab pipeline.
 
 ### Inspect Action
 The Inspect action is similar to PoseGoalAction in the basic notion that the arm moves to some pose. However, the orientation and offsets contained in the database ensures that the actual goal pose is modified to position the end-effector in an inspecting pose over the object.
-
-[[File:Inspect.mp4 | thumb  | 400px | center | '''Figure 18''': Video showing GETjag attempting to Inspect on a box before retracting to home position.]]
 
 ### Extract Action
 The Extract action is similar to the Inspect action except that there is an additional task in the pipeline, which is to extract out a part of the object after grasping it. Grasping part is again similar to the Grasp action. The following pipeline diagram depicts the implementation of the extract action vividly.
