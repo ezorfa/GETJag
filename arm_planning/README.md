@@ -1,7 +1,7 @@
 # Teasor
 <p align="center">
-<img src="images/Grasp.gif" width="480">
-<p align="center">Robot attempting to perform grasp operation<p align="center">
+<img src="images/Grasp.gif" width="380" height="250"><img src="images/Gazebo_grasp.gif" width="380" height="250">
+<p align="center">Robot attempting to perform grasp operation. (Right) Visualiztion in RViz<p align="center">
   
 # Short Description
 <p align="center">
