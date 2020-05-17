@@ -97,7 +97,6 @@ void Planning::addMeshCollisionObjects (const std::vector<std::string>& objectID
 void Planning::removeCollisionObjects (const std::vector<std::string>& objectID)
 {
 //	planningSceneInterface->removeCollisionObjects (objectID);
-
 	moveit_msgs::CollisionObject object;
 	object.header.frame_id = "GETjag/base_link";
 	object.id = objectID.front ();
@@ -167,7 +166,6 @@ bool Planning::planToHome (moveit_msgs::RobotTrajectory& traj)
  * */
 bool Planning::plan (geometry_msgs::Pose targetPose, moveit_msgs::RobotTrajectory& traj, bool collisions)
 {
-
 	moveGroup->setStartState (*moveGroup->getCurrentState ());
 	moveGroup->clearPoseTargets ();
 	moveGroup->setNumPlanningAttempts (staticParams.moveitMaxPlanningAttempts);
@@ -287,23 +285,23 @@ bool Planning::plan (std::map<std::string, double>& increments, const std::strin
 		}
 	}
 
-	//~ moveGroup->setPoseTarget(targetPose);
-	//~ moveit::planning_interface::MoveGroupInterface::Plan plannedPath;
+	// moveGroup->setPoseTarget(targetPose);
+	// moveit::planning_interface::MoveGroupInterface::Plan plannedPath;
 
-	//~ bool success = (moveGroup->plan(plannedPath)== moveit::planning_interface::MoveItErrorCode::SUCCESS);
+	// bool success = (moveGroup->plan(plannedPath)== moveit::planning_interface::MoveItErrorCode::SUCCESS);
 
-	//~ if (plannedPath.trajectory_.joint_trajectory.points.size() > 1)
-	//~ {
-	//~ planningAttempts = 0;
-	//~ success = true;
-	//~ int i= 0;
-	//~ for (auto& joint : jointNames)
-	//~ {
-	//~ targetJointAngles[joint] = plannedPath.trajectory_.joint_trajectory.points.back().positions[i];
-	//~ i++;
-	//~ }
+	// if (plannedPath.trajectory_.joint_trajectory.points.size() > 1)
+	// {
+	// planningAttempts = 0;
+	// success = true;
+	// int i= 0;
+	// for (auto& joint : jointNames)
+	// {
+	// targetJointAngles[joint] = plannedPath.trajectory_.joint_trajectory.points.back().positions[i];
+	// i++;
+	// }
 
-	//~ }
+	// }
 
 	moveit_msgs::RobotTrajectory traj;
 	std::vector<geometry_msgs::Pose> vector;
@@ -354,7 +352,7 @@ bool Planning::plan (std::map<std::string, double>& increments, const std::strin
 	else
 	{
 		if ((increments["x"] != 0 and increments["y"] == 0 and increments["z"] == 0)
-		//				or (increments["x"] == 0 and increments["y"] != 0 and increments["z"] == 0)
+		//		or (increments["x"] == 0 and increments["y"] != 0 and increments["z"] == 0)
 		//              or (increments["x"] == 0 and increments["y"] == 0 and increments["z"] != 0)
 		)
 		{
