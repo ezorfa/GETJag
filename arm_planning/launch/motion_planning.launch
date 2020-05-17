@@ -3,9 +3,7 @@
 
 	<node name="JointStatesPublisher" pkg="arm_planning" type="JointStatesPublisher" respawn="false" output="screen">
 	</node>
-
 	<rosparam command="load" file="$(find arm_planning)/config/init.yaml"/>
-
 	<node name="init" pkg="arm_planning" type="init" respawn="false" output="screen">
 	</node>
 
