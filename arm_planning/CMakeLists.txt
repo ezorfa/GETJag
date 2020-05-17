@@ -21,7 +21,7 @@ find_package (yaml-cpp REQUIRED)
 
 catkin_package(
   CATKIN_DEPENDS roscpp std_msgs sensor_msgs geometry_msgs
-      INCLUDE_DIRS include
+  INCLUDE_DIRS include
 
   )
 
